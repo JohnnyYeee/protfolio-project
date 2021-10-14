@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Huasheng Ye">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Huasheng Ye</title>
+    <title>{{blog.title}}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
 
@@ -24,7 +24,7 @@
   <body>
 
 <header>
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'home' %}">Huasheng Ye</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="https://www.linkedin.com/in/huashengye/">LinkedIn</a>
         <a class="nav-link" href="{% static 'Resume.pdf' %}">Resume</a>
-        <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+        <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
       </div>
     </div>
   </div>
@@ -43,47 +43,17 @@
 
 <main>
 
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Hi, I'm Huasheng.</h1>
-        <p class="lead text-muted">Hey, my name is Huasheng Ye. Welcome to my website!</p>
-        <p>
-          <a href="mailto:johnnyye9625@gmail.com" class="btn btn-primary my-2">Email me</a>
-
-        </p>
-        <img src="{% static 'test.jpg' %}" height="300" width="300"/>
-      </div>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          {% for job in jobs.all %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" src = "{{job.image.url}}"/>
-
-            <div class="card-body">
-              <p class="card-text">{{job.summary}}</p>
-
-            </div>
-          </div>
-        </div>
-          {% endfor %}
+  <div class="container">
 
 
+    <h1 class="text-center pt-3">{{ blog.title }}</h1>
+    <p class="text-center">{{ blog.pub_date}}</p>
+    <img class="img-fluid" src="{{ blog.image.url }}" />
+    <br />
+     <br />
+    <p>{{ blog.body }}</p>
 
 
-
-
-
-
-
-      </div>
-    </div>
   </div>
 
 </main>
