@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -7,7 +8,8 @@ from django.db import models
 class Blog(models.Model):
     title = models.CharField(max_length=255)
     pub_date = models.DateTimeField()
-    body = models.TextField(blank=True,null=True)
+    body = RichTextField(blank=True,null=True)
+    #body = models.TextField(blank=True,null=True)
     image = models.ImageField(upload_to='images/',blank=True,null=True)
 
     def __str__(self):
