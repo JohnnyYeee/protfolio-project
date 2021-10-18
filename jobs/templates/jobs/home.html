@@ -64,10 +64,10 @@
           {% for job in jobs.all %}
         <div class="col">
           <div class="card shadow-sm">
-            <img class="bd-placeholder-img card-img-top" src = "{{job.image.url}}"/>
+            <img class="bd-placeholder-img card-img-top" src = "{{job.image.url}}" height=300 width=300/>
 
             <div class="card-body">
-              <p class="card-text">{{job.summary}}</p>
+              <p class="card-text">{{job.summary|safe }}</p>
 
             </div>
           </div>
